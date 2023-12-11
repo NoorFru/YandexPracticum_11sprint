@@ -10,15 +10,15 @@ SELECT c.login, \
                COUNT(o."inDelivery") \
 FROM "Couriers" AS c \
 INNER JOIN "Orders" AS o ON c.id =o."courierId" \
-WHERE o."inDelivery" = 't' \
+WHERE o."inDelivery" = true \
 GROUP BY login;\
 \
 2 \uc0\u1079 \u1072 \u1076 \u1072 \u1085 \u1080 \u1077  \
 SELECT track, \
                CASE \
-               WHEN finished='t' THEN '2' \
-               WHEN finished='t' THEN '-1' \
-               WHEN "inDelivery"='t' THEN '1' \
+               WHEN finished=true THEN '2' \
+               WHEN finished=true THEN '-1' \
+               WHEN "inDelivery"=true THEN '1' \
                ELSE '0'  \
       END \
 FROM "Orders";\
